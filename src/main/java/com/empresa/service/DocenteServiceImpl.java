@@ -55,5 +55,20 @@ public class DocenteServiceImpl implements DocenteService {
 		return repository.listaPorDNIIgualActualiza(dni, idDocente);
 	}
 
+//CONSULTA CON FILTRO
+	@Override
+	public List<Docente> listaConsulta(String nombre, String dni, int estado, int idUbigeo) {
+		return repository.listaConsulta(nombre, dni, estado, idUbigeo);
+	}
+
 
 }
+
+
+
+
+
+
+
+
+

@@ -19,4 +19,6 @@ public interface DocenteService {
 	public abstract List<Docente> listaPorNombreIgualActualiza(String nombre, int idDocente);
 	public abstract List<Docente> listaPorDNIIgualActualiza(String dni, int idDocente);
 	
+	//COnsulta
+	public abstract List<Docente> listaConsulta(String nombre, String dni, int estado, int idUbigeo);
 }

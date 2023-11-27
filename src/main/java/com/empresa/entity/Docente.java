@@ -1,5 +1,6 @@
 package com.empresa.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -18,6 +19,7 @@ import jakarta.persistence.TemporalType;
 @Table(name = "docente")
 public class Docente {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDocente;
@@ -33,6 +35,7 @@ public class Docente {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Lima")
 	private Date fechaRegistro;
 
+// Getter y Setters
 	
 	public Date getFechaRegistro() {
 		return fechaRegistro;
@@ -82,6 +85,21 @@ public class Docente {
 		this.ubigeo = ubigeo;
 	}
 
-
+	
+//Para el reporte
+	public String getReporteEstado() {
+		return estado == 1 ? "Activo": "Inactivo";
+	}
+	
+	
+	public String getReporteUbigeo() {
+		return ubigeo.getDepartamento() + " - " + ubigeo.getProvincia() + " - " + ubigeo.getDistrito();
+	}
+	
+	public String getReporteFecha() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(fechaRegistro);
+	}
+	
 
 }
